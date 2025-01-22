@@ -1,4 +1,4 @@
-FROM debian:12.8-slim AS steamstage
+FROM debian:12.8-slim
 
 RUN apt update &&\
  apt install -y \
@@ -22,8 +22,6 @@ RUN su -c ' \
  tar -zxf - -C steamcmd &&\
  steamcmd/steamcmd.sh +quit \
  ' user
-
-FROM alpine:3.21
 
 SSHCOPY
 RUN mkdir /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
